@@ -3,6 +3,7 @@ package com.springboot.service;
 import com.springboot.entity.FlightTickets;
 import com.springboot.entity.Flights;
 import com.springboot.mapper.FlightsMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
