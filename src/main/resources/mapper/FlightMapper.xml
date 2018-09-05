@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+        "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+    <mapper namespace="com.springboot.mapper.FlightsMapper">
+        <select id="findByConditions" resultType="com.springboot.entity.Flights">
+            select f.*, #{startport1} as startport ,  #{endport1} as endport  from flights as f , airports as a,  airports as b where
+            f.flightDate=#{date}
+            and f.takeAirportId=(select a.id from  airports as a where   cityName = #{startport}  )
+            and f.landingAirportId=(select b.id from  airports as b where   cityName = #{endport}  )
+
+
+            group by f.id
+        </select>
+
+
+        <select id="findById" resultType="com.springboot.entity.FlightTickets">
+            select * from flight_tickets where flightId=#{id}
+        </select>
+
+        <select id="findport" resultType="string" parameterType="string">
+            select a.airportName from airports  a where a.cityName=#{area}
+        </select>
+
+</mapper>	

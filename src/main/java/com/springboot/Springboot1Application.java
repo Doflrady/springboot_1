@@ -10,7 +10,6 @@ import org.springframework.context.annotation.ComponentScan;
 //@ComponentScan("com.springboot.controller")
 
 @SpringBootApplication
-@MapperScan("com.springboot.mapper")
 public class Springboot1Application {
 
 	public static void main(String[] args) {
